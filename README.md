@@ -1,1 +1,0 @@
-# sarithahepsibha-lab.github.io
