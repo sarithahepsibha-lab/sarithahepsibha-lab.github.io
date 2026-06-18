@@ -5,96 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Page</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f9f9f9;
-            color: #111;
-            padding: 40px 20px;
+            background: #f0f4f8;
+            color: #1a2533;
+            padding: 50px 20px;
         }
 
         .page {
-            max-width: 700px;
+            max-width: 680px;
             margin: auto;
-            background: white;
-            padding: 40px 50px;
-            border-radius: 4px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
-        h1 {
-            font-size: 2rem;
+        .page-header {
+            background: #0d4f6c;
+            padding: 32px 40px;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 1.9rem;
             font-weight: 700;
+            letter-spacing: -0.3px;
             margin-bottom: 6px;
         }
 
         .faculty {
-            font-size: 0.95rem;
-            color: #555;
-            margin-bottom: 30px;
+            font-size: 0.9rem;
+            color: #a8d8ea;
+        }
+
+        .page-body {
+            padding: 30px 40px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.97rem;
+            font-size: 0.95rem;
         }
 
         th {
             text-align: left;
             padding: 12px 16px;
-            border: 1px solid #ccc;
-            background: #f0f0f0;
-            font-weight: 600;
+            background: #e8f4f8;
+            color: #0d4f6c;
+            font-weight: 700;
+            border-bottom: 2px solid #0d4f6c;
         }
 
         td {
-            padding: 12px 16px;
-            border: 1px solid #ccc;
+            padding: 13px 16px;
+            border-bottom: 1px solid #e2e8f0;
         }
 
+        tr:last-child td { border-bottom: none; }
+
+        tr:hover td { background: #f7fbfd; }
+
         td a {
-            color: #1a57c8;
+            color: #0d7fa3;
             text-decoration: none;
+            font-weight: 500;
         }
 
         td a:hover {
+            color: #f59e0b;
             text-decoration: underline;
         }
 
-        tr:nth-child(even) td {
-            background: #fafafa;
+        .quiz-link {
+            display: inline-block;
+            background: #f59e0b;
+            color: white !important;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none !important;
+            transition: background 0.2s;
+        }
+
+        .quiz-link:hover {
+            background: #d97706 !important;
+            color: white !important;
+        }
+
+        footer {
+            text-align: center;
+            padding: 16px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
         }
     </style>
 </head>
 <body>
     <div class="page">
-        <h1>Course Page</h1>
-        <p class="faculty">Faculty: Rohini Kumar Barla</p>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Topic</th>
-                    <th>Quiz</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="OSI_Model_Explorer.html" target="_blank">OSI Model</a></td>
-                    <td><a href="OSI_Model_Quiz.html" target="_blank">Quiz</a></td>
-                </tr>
-                <tr>
-                    <td><a href="logical_addressing_concept.html" target="_blank">Logical Addressing</a></td>
-                    <td><a href="logical_addressing_quiz.html" target="_blank">Quiz</a></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="page-header">
+            <h1>Course Page</h1>
+            <p class="faculty">Faculty: Rohini Kumar Barla</p>
+        </div>
+        <div class="page-body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Quiz</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="OSI_Model_Explorer.html" target="_blank">OSI Model</a></td>
+                        <td><a class="quiz-link" href="OSI_Model_Quiz.html" target="_blank">Quiz</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="logical_addressing_concept.html" target="_blank">Logical Addressing</a></td>
+                        <td><a class="quiz-link" href="logical_addressing_quiz.html" target="_blank">Quiz</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <footer>Computer Networks Learning Portal © 2026</footer>
     </div>
 </body>
 </html>
