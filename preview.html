@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logical Addressing in Computer Networks</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
+    color:white;
+    line-height:1.7;
+}
+
+header{
+    text-align:center;
+    padding:60px 20px;
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:15px;
+    color:#38bdf8;
+}
+
+header p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.section{
+    margin:50px 0;
+}
+
+.card-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border-radius:15px;
+    padding:25px;
+    transition:0.4s;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.card h3{
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+
+.example-box{
+    background:#1e293b;
+    padding:25px;
+    border-left:5px solid #38bdf8;
+    border-radius:10px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    overflow:hidden;
+}
+
+th{
+    background:#0ea5e9;
+    color:white;
+}
+
+th,td{
+    padding:15px;
+    border:1px solid rgba(255,255,255,0.2);
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:rgba(255,255,255,0.05);
+}
+
+.highlight{
+    color:#38bdf8;
+    font-weight:bold;
+}
+
+.flow{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:30px;
+}
+
+.step{
+    background:#0ea5e9;
+    padding:15px 25px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.arrow{
+    font-size:25px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    margin-top:50px;
+    background:rgba(0,0,0,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Logical Addressing</h1>
+    <p>
+        Understanding how devices communicate across networks using IP addresses.
+        Logical addressing enables data packets to travel from source to destination
+        across multiple interconnected networks.
+    </p>
+</header>
+
+<div class="container">
+
+    <section class="section">
+        <h2>📌 What is Logical Addressing?</h2>
+        <br>
+        <p>
+            Logical Addressing is a method of identifying devices using
+            <span class="highlight">IP Addresses</span>. Unlike physical addresses
+            (MAC addresses), logical addresses can be changed and are used for
+            communication between networks.
+        </p>
+    </section>
+
+    <section class="section">
+        <div class="card-container">
+
+            <div class="card">
+                <h3>🌐 IP Address</h3>
+                <p>
+                    A unique logical identifier assigned to every device in a network.
+                    Example: 192.168.1.10
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>📡 Layer</h3>
+                <p>
+                    Logical Addressing operates at the
+                    <strong>Network Layer (Layer 3)</strong>
+                    of the OSI Model.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🚀 Routing</h3>
+                <p>
+                    Routers use logical addresses to determine the best path
+                    for forwarding packets.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>🔄 How Logical Addressing Works</h2>
+
+        <div class="flow">
+            <div class="step">Source Device</div>
+            <div class="arrow">➡</div>
+            <div class="step">IP Address Added</div>
+            <div class="arrow">➡</div>
+            <div class="step">Router</div>
+            <div class="arrow">➡</div>
+            <div class="step">Destination Device</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>💡 Real-World Example</h2>
+        <br>
+
+        <div class="example-box">
+            <p>
+                Imagine sending a letter from Hyderabad to Delhi.
+                The house address on the envelope helps the postal system
+                route the letter correctly.
+            </p>
+
+            <br>
+
+            <p>
+                Similarly, in networking, an IP address acts as the logical
+                address that helps routers deliver data packets to the correct destination.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>⚖️ Logical Address vs Physical Address</h2>
+
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Logical Address</th>
+                <th>Physical Address</th>
+            </tr>
+
+            <tr>
+                <td>Example</td>
+                <td>IP Address</td>
+                <td>MAC Address</td>
+            </tr>
+
+            <tr>
+                <td>OSI Layer</td>
+                <td>Network Layer</td>
+                <td>Data Link Layer</td>
+            </tr>
+
+            <tr>
+                <td>Can Change?</td>
+                <td>Yes</td>
+                <td>No (Usually Fixed)</td>
+            </tr>
+
+            <tr>
+                <td>Used For</td>
+                <td>Inter-Network Communication</td>
+                <td>Local Network Communication</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="section">
+        <h2>🎯 Advantages of Logical Addressing</h2>
+        <br>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>Global Communication</h3>
+                <p>
+                    Enables communication across different networks worldwide.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Efficient Routing</h3>
+                <p>
+                    Helps routers find optimal paths for packet delivery.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Scalability</h3>
+                <p>
+                    Supports billions of devices through IPv4 and IPv6.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>
+        Computer Networks Learning Portal © 2026 | Logical Addressing Explained
+    </p>
+</footer>
+
+</body>
+</html>
