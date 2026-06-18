@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logical Addressing Challenge</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:linear-gradient(135deg,#0f172a,#1e3a8a,#06b6d4);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;}
+.quiz-box{width:90%;max-width:850px;background:rgba(255,255,255,0.12);backdrop-filter:blur(15px);padding:30px;border-radius:25px;box-shadow:0 15px 35px rgba(0,0,0,0.4);color:white;}
+h1{text-align:center;margin-bottom:10px;}
+.subtitle{text-align:center;margin-bottom:25px;opacity:.9;}
+.stats{display:flex;justify-content:space-between;margin-bottom:20px;font-size:18px;font-weight:bold;}
+.progress{height:12px;background:rgba(255,255,255,0.2);border-radius:30px;overflow:hidden;margin-bottom:25px;}
+.progress-bar{height:100%;width:0%;background:#22c55e;transition:.4s;}
+.question{font-size:1.3rem;font-weight:bold;margin-bottom:20px;}
+.option{display:block;background:rgba(255,255,255,0.15);padding:15px;margin:12px 0;border-radius:12px;cursor:pointer;transition:.3s;}
+.option:hover{transform:translateX(8px);background:rgba(255,255,255,0.25);}
+button{background:#22c55e;color:white;border:none;padding:12px 25px;border-radius:10px;cursor:pointer;font-size:16px;margin-top:15px;}
+.result{display:none;text-align:center;}
+.badge{font-size:80px;margin:20px;}
+.score{font-size:2.2rem;margin:15px;color:#fde047;}
+</style>
+</head>
+<body>
+<div class="quiz-box">
+<h1>🌐 Logical Addressing Challenge</h1>
+<p class="subtitle">Test your Computer Networks Knowledge</p>
+<div class="stats">
+<div>⭐ Score: <span id="scoreDisplay">0</span></div>
+<div>⏳ Time: <span id="timer">30</span>s</div>
+</div>
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+<div id="quizSection">
+<div class="question" id="question"></div>
+<div id="options"></div>
+<button onclick="nextQuestion()">Next</button>
+</div>
+<div class="result" id="resultSection">
+<div class="badge" id="badge"></div>
+<h2>Quiz Completed!</h2>
+<div class="score" id="finalScore"></div>
+<div id="message"></div>
+</div>
+</div>
+<script>
+let questions=[
+{q:"Which address is known as a Logical Address?",o:["MAC Address","IP Address","Port Number","Host Name"],a:"IP Address"},
+{q:"Logical Addressing operates at which OSI layer?",o:["Physical","Data Link","Network","Session"],a:"Network"},
+{q:"Which device uses logical addresses to forward packets?",o:["Hub","Repeater","Router","Bridge"],a:"Router"},
+{q:"Which protocol provides logical addressing?",o:["Ethernet","IP","ARP","PPP"],a:"IP"},
+{q:"An example of IPv4 address is:",o:["00-1A-2B-3C","192.168.1.1","ABCD","123456"],a:"192.168.1.1"}
+];
+let current=0,score=0,timer=30,interval;
+function loadQuestion(){
+if(current>=questions.length){showResult();return;}
+document.getElementById("question").innerHTML=(current+1)+". "+questions[current].q;
+let html="";
+questions[current].o.forEach(opt=>{
+html+=`<label class="option"><input type="radio" name="ans" value="${opt}"> ${opt}</label>`;
+});
+document.getElementById("options").innerHTML=html;
+resetTimer();
+}
+function resetTimer(){
+clearInterval(interval);timer=30;
+document.getElementById("timer").innerText=timer;
+interval=setInterval(()=>{timer--;document.getElementById("timer").innerText=timer;if(timer<=0)nextQuestion();},1000);
+}
+function nextQuestion(){
+let s=document.querySelector('input[name="ans"]:checked');
+if(s && s.value===questions[current].a){score++;document.getElementById("scoreDisplay").innerText=score;}
+current++;loadQuestion();
+}
+function showResult(){
+clearInterval(interval);
+document.getElementById("quizSection").style.display="none";
+document.getElementById("resultSection").style.display="block";
+document.getElementById("finalScore").innerText=score+" / "+questions.length;
+document.getElementById("badge").innerText=score>=4?"🏆":"📘";
+document.getElementById("message").innerText=score>=4?"Excellent!":"Keep Practicing!";
+}
+loadQuestion();
+</script>
+</body>
+</html>

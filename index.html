@@ -1,13 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My GitHub Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f9f9f9;
+            color: #111;
+            padding: 40px 20px;
+        }
+
+        .page {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 40px 50px;
+            border-radius: 4px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .faculty {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.97rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            border: 1px solid #ccc;
+            background: #f0f0f0;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 16px;
+            border: 1px solid #ccc;
+        }
+
+        td a {
+            color: #1a57c8;
+            text-decoration: none;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+        tr:nth-child(even) td {
+            background: #fafafa;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>Welcome to my GitHub Page.</p>
-    <a href="preview.html" target="_blank">
-        <p> This link provides details about logical addressing concept</p>
-    </a>
+    <div class="page">
+        <h1>Course Page</h1>
+        <p class="faculty">Faculty: Rohini Kumar Barla</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Quiz</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="OSI_Model_Explorer.html" target="_blank">OSI Model</a></td>
+                    <td><a href="OSI_Model_Quiz.html" target="_blank">Quiz</a></td>
+                </tr>
+                <tr>
+                    <td><a href="logical_addressing_concept.html" target="_blank">Logical Addressing</a></td>
+                    <td><a href="logical_addressing_quiz.html" target="_blank">Quiz</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

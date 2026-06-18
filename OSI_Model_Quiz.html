@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSI Model Quiz Challenge</title>
+<style>
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#1e3a8a,#0f172a);
+color:white;
+margin:0;
+padding:20px;
+}
+.container{
+max-width:900px;
+margin:auto;
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:15px;
+}
+h1{text-align:center;}
+.question{
+margin:20px 0;
+padding:15px;
+background:rgba(255,255,255,0.08);
+border-radius:10px;
+}
+label{
+display:block;
+padding:6px;
+cursor:pointer;
+}
+button{
+padding:12px 20px;
+font-size:16px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+#result{
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>OSI Model Quiz Challenge</h1>
+
+<form id="quizForm">
+
+<div class="question">
+<p>1. How many layers are there in the OSI Model?</p>
+<label><input type="radio" name="q1" value="a"> 4</label>
+<label><input type="radio" name="q1" value="b"> 5</label>
+<label><input type="radio" name="q1" value="c"> 7</label>
+<label><input type="radio" name="q1" value="d"> 8</label>
+</div>
+
+<div class="question">
+<p>2. Which layer is responsible for routing packets?</p>
+<label><input type="radio" name="q2" value="a"> Transport</label>
+<label><input type="radio" name="q2" value="b"> Network</label>
+<label><input type="radio" name="q2" value="c"> Session</label>
+<label><input type="radio" name="q2" value="d"> Physical</label>
+</div>
+
+<div class="question">
+<p>3. Which layer handles encryption and compression?</p>
+<label><input type="radio" name="q3" value="a"> Presentation</label>
+<label><input type="radio" name="q3" value="b"> Network</label>
+<label><input type="radio" name="q3" value="c"> Data Link</label>
+<label><input type="radio" name="q3" value="d"> Physical</label>
+</div>
+
+<div class="question">
+<p>4. Which protocol is commonly associated with the Transport Layer?</p>
+<label><input type="radio" name="q4" value="a"> IP</label>
+<label><input type="radio" name="q4" value="b"> ARP</label>
+<label><input type="radio" name="q4" value="c"> TCP</label>
+<label><input type="radio" name="q4" value="d"> Ethernet</label>
+</div>
+
+<div class="question">
+<p>5. Which layer uses MAC addresses?</p>
+<label><input type="radio" name="q5" value="a"> Application</label>
+<label><input type="radio" name="q5" value="b"> Data Link</label>
+<label><input type="radio" name="q5" value="c"> Session</label>
+<label><input type="radio" name="q5" value="d"> Transport</label>
+</div>
+
+<div class="question">
+<p>6. Which layer is closest to the end user?</p>
+<label><input type="radio" name="q6" value="a"> Physical</label>
+<label><input type="radio" name="q6" value="b"> Network</label>
+<label><input type="radio" name="q6" value="c"> Application</label>
+<label><input type="radio" name="q6" value="d"> Data Link</label>
+</div>
+
+<div class="question">
+<p>7. What is the PDU at the Network Layer?</p>
+<label><input type="radio" name="q7" value="a"> Frame</label>
+<label><input type="radio" name="q7" value="b"> Packet</label>
+<label><input type="radio" name="q7" value="c"> Segment</label>
+<label><input type="radio" name="q7" value="d"> Bits</label>
+</div>
+
+<div class="question">
+<p>8. Which layer establishes and terminates sessions?</p>
+<label><input type="radio" name="q8" value="a"> Session</label>
+<label><input type="radio" name="q8" value="b"> Physical</label>
+<label><input type="radio" name="q8" value="c"> Data Link</label>
+<label><input type="radio" name="q8" value="d"> Network</label>
+</div>
+
+<div class="question">
+<p>9. What is the PDU at the Data Link Layer?</p>
+<label><input type="radio" name="q9" value="a"> Segment</label>
+<label><input type="radio" name="q9" value="b"> Packet</label>
+<label><input type="radio" name="q9" value="c"> Frame</label>
+<label><input type="radio" name="q9" value="d"> Data</label>
+</div>
+
+<div class="question">
+<p>10. Which layer transmits raw bits over the medium?</p>
+<label><input type="radio" name="q10" value="a"> Physical</label>
+<label><input type="radio" name="q10" value="b"> Transport</label>
+<label><input type="radio" name="q10" value="c"> Session</label>
+<label><input type="radio" name="q10" value="d"> Application</label>
+</div>
+
+<button type="button" onclick="checkQuiz()">Submit Quiz</button>
+</form>
+
+<div id="result"></div>
+</div>
+
+<script>
+function checkQuiz(){
+let answers={
+q1:'c', q2:'b', q3:'a', q4:'c', q5:'b',
+q6:'c', q7:'b', q8:'a', q9:'c', q10:'a'
+};
+
+let score=0;
+
+for(let q in answers){
+let selected=document.querySelector('input[name="'+q+'"]:checked');
+if(selected && selected.value===answers[q]) score++;
+}
+
+document.getElementById('result').innerHTML =
+"Your Score: "+score+" / 10";
+}
+</script>
+
+</body>
+</html>
